@@ -4,6 +4,7 @@ import "./css/styles.css";
 
 import Home from "./home.js";
 import About from "./about.js";
+import Menu from "./menu.js";
 
 const Controller = (function () {
   function homePage() {
@@ -11,7 +12,7 @@ const Controller = (function () {
   }
 
   function menuPage() {
-    // Menu();
+    Menu();
   }
 
   function aboutPage() {
@@ -19,23 +20,28 @@ const Controller = (function () {
   }
 
   function notFound() {
-    // NotFound();
+    NotFound();
   }
 
   function controlPage(page) {
-    return page === "Home"
+    return page === "home"
       ? homePage()
-      : page === "Menu"
+      : page === "menu"
         ? menuPage()
-        : page === "About"
+        : page === "about"
           ? aboutPage()
-          : notFound;
+          : notFound();
   }
 
   return { controlPage };
 })(Home);
 
 const UI = (function (controller) {
+  const buttons = document.querySelectorAll("button");
+  for (let button of buttons) {
+    button.addEventListener("click", clickHandler);
+  }
+
   function clearUi() {
     const content = document.querySelector("#content");
     content.classList = null;
@@ -44,10 +50,13 @@ const UI = (function (controller) {
 
   function clickHandler(event) {
     clearUi();
-    controller.controlPage(event.target.innerText);
+    controller.controlPage(event.target.innerText.toLowerCase());
   }
-  const buttons = document.querySelectorAll("button");
-  for (let button of buttons) {
-    button.addEventListener("click", clickHandler);
+
+  function initialPage() {
+    Home();
   }
+  return { initialPage };
 })(Controller);
+
+UI.initialPage();

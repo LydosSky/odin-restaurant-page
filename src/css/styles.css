@@ -2,8 +2,31 @@ body {
   height: 100vh;
 }
 
+header {
+  height: 4%;
+  background: #393e46;
+  padding: 0.4rem;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 3rem;
+}
+
+header nav button {
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  background: #00adb5;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
 #content {
-  height: 97.5%;
+  height: 94.5%;
 }
 
 .home-background {
@@ -12,6 +35,7 @@ body {
   background-size: cover;
 }
 
+.menu-content,
 .about-content,
 .home-content {
   display: flex;
@@ -19,16 +43,19 @@ body {
   align-items: center;
 }
 
+.menu-content h1,
 .about-content h1,
 .home-content h1 {
   font-size: 5rem;
   color: white;
 }
 
+.menu-background,
 .about-background {
   background-color: #eeeeee;
 }
 
+.menu-content h1,
 .about-content h1 {
   color: black;
 }
