@@ -12,13 +12,23 @@ body {
   background-size: cover;
 }
 
+.about-content,
 .home-content {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.about-content h1,
 .home-content h1 {
   font-size: 5rem;
   color: white;
+}
+
+.about-background {
+  background-color: #eeeeee;
+}
+
+.about-content h1 {
+  color: black;
 }

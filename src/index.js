@@ -38,8 +38,10 @@ const Controller = (function () {
 const UI = (function (controller) {
   function clearUi() {
     const content = document.querySelector("#content");
+    content.classList = null;
     content.innerHTML = "";
   }
+
   function clickHandler(event) {
     clearUi();
     controller.controlPage(event.target.innerText);
